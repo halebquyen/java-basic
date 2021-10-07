@@ -3,11 +3,11 @@ package day4;
 public class Exercises_Day4 {
     public static void main(String args[]) {
         print(forLoop());
-        //print(doWhileLoop());
-        //print(doubleForLoop());
-        //print(forLoopContinue());
-        //print(doWhileLoopContinue());
-        //print(whileLoopContinue());
+        print(doWhileLoop());
+        print(doubleForLoop());
+        print(forLoopContinue());
+        print(doWhileLoopContinue());
+        print(whileLoopContinue());
     }
 
     public static void print(int value) {
