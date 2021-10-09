@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Exercises_Day5 {
     public static void main(String args[]) {
         //Exercises 1 here
-        int[] array1 = {10, -20, 0, 30, 40, 60, 10};
+        Integer[] array1 = {10, -20, 0, 30, 40, 60, 10};
         printElementArray("Test Data: array = ", array1);
         print(validArrayElementFirstORLastIs10(array1));
 
@@ -24,19 +24,21 @@ public class Exercises_Day5 {
         //Exercises 4 here
         int[] array5 = {50, -20, 0};
         int[] array6 = {5, -50, 10};
-        createNewArray(array5, array6);
+        printArray("Array1: ", array5);
+        printArray("Array2: ", array6);
+        printArray("New Array:", createNewArray(array5, array6));
 
         //Exercises 5 here
-        int[] array7 = {5,7};
-        printArray("Original Array: ",array7);
+        int[] array7 = {5, 7};
+        printArray("Original Array: ", array7);
         print(checkElementValue(array7));
 
-        int[] array8 = {4,1};
-        printArray("Original Array: ",array8);
+        int[] array8 = {4, 1};
+        printArray("Original Array: ", array8);
         print(checkElementValue(array8));
 
-        int[] array9 = {0,1};
-        printArray("Original Array: ",array9);
+        int[] array9 = {0, 1};
+        printArray("Original Array: ", array9);
         print(checkElementValue(array9));
 
         //Exercises 6 here
@@ -49,18 +51,18 @@ public class Exercises_Day5 {
         //Exercises 7 here
         int[] array11 = {20, 30, 1};
         printArray("Original Array: ", array11);
-        print("Larger value between first and last element: ", maxFirstLastElement(array11));
+        print("Larger value between first and last element: " + maxFirstLastElement(array11));
 
         //Exercises 8 here
-        int[] array12 = {20, 40};
+        int[] array12 = {20, 30, 40};
         printArray("Original Array: ", array12);
-        swapFirstLast(array12);
+        printArray("New array after swapping the first and last elements: ", swapFirstLast(array12));
 
 
         //Exercises 9 here
         int[] array = {10, 30, 5, 50, 67};
         printArray("Original Array: ", array);
-        print("Largest element between first, last, and middle values: ", maxFirstMiddleLast(array));
+        print("Largest element between first, last, and middle values: " + maxFirstMiddleLast(array));
 
         //Exercises 10 here
         printPATHTEMPUSERNAME();
@@ -70,7 +72,7 @@ public class Exercises_Day5 {
         countEvenAndOdd(array13);
 
         //Exercises 13 here
-        int number = enterNumber();
+        int number = enterNumber("Enter number");
         System.out.println("Square root of " + number + " is:" + squareRoot(number));
 
         //Exercises 15 here
@@ -84,15 +86,15 @@ public class Exercises_Day5 {
 
 
         //Exercises 17 here
-        int day = enterNumber();
+        int day = enterNumber("Enter number");
         printDay(day);
 
         //Exercises 18 here
-        int month = enterNumber();
+        int month = enterNumber("Enter month");
         printMonth(month);
 
         //Exercises 19 here
-        int year = enterNumber();
+        int year = enterNumber("Enter year");
         boolean isLeap = isLeap(year);
         if (isLeap == true) {
             System.out.println(year + " là năm nhuận.");
@@ -112,15 +114,13 @@ public class Exercises_Day5 {
     Test Data: array = 10, -20, 0, 30, 40, 60, 10
     true
      */
-    public static boolean validArrayElementFirstORLastIs10(int[] array) {
+    public static boolean validArrayElementFirstORLastIs10(Integer[] array) {
         boolean result = false;
         int lengthArray = array.length;
         if (lengthArray >= 2) {
             if (array[0] == 10 || array[lengthArray - 1] == 10) {
                 result = true;
             }
-        } else {
-            System.out.println("Input invalid");
         }
         return result;
     }
@@ -133,12 +133,8 @@ public class Exercises_Day5 {
     public static boolean validArrayElementFirstAndLastTheSame(int[] array) {
         boolean result = false;
         int lengthArray = array.length;
-        if (lengthArray >= 2) {
-            if (array[0] == array[lengthArray - 1]) {
-                result = true;
-            }
-        } else {
-            System.out.println("Input Invalid");
+        if (lengthArray >= 2 && array[0] == array[lengthArray - 1]) {
+            result = true;
         }
         return result;
     }
@@ -159,8 +155,6 @@ public class Exercises_Day5 {
             if (array1[0] == array2[0] && array1[lengthArray1 - 1] == array2[lengthArray2 - 1]) {
                 result = true;
             }
-        } else {
-            result = false;
         }
         return result;
     }
@@ -174,14 +168,12 @@ public class Exercises_Day5 {
     Array2: [5, -50, 10]
     New Array: [50, 10]
      */
-    public static void createNewArray(int[] array1, int[] array2) {
+    public static int[] createNewArray(int[] array1, int[] array2) {
+        int[] arrayNew = new int[2];
         if (array1.length == 3 && array2.length == 3) {
-            printArray("Array1: ", array1);
-            printArray("Array2: ", array2);
-            int[] arrayNew = {array1[0], array2[2]};
-            printArray("New Array: ", arrayNew);
-        } else
-            System.out.println("Input invalid");
+            arrayNew = new int[]{array1[0], array2[2]};
+        }
+        return arrayNew;
     }
 
     /*
@@ -198,8 +190,6 @@ public class Exercises_Day5 {
                 if (array[i] == 4 || array[i] == 7)
                     result = true;
             }
-        } else {
-            System.out.println("Input Invalid");
         }
         return result;
     }
@@ -242,15 +232,13 @@ public class Exercises_Day5 {
     Original Array: [20, 30, 40]
     New array after swapping the first and last elements: [40, 30, 20]
      */
-    public static void swapFirstLast(int[] array) {
+    public static int[] swapFirstLast(int[] array) {
         if (array.length >= 1) {
             int temp = array[0];
             array[0] = array[array.length - 1];
             array[array.length - 1] = temp;
-            printArray("New array after swapping the first and last elements: ", array);
-        } else {
-            print("Input Invalid");
         }
+        return array;
     }
 
     /*
@@ -416,15 +404,15 @@ public class Exercises_Day5 {
         print(monthName);
     }
 
-
     //19. Viết chương trình nhập 1 năm bất kỳ, sau đó trả ra là năm nhuận hay không.
     public static boolean isLeap(int year) {
-        if (year % 400 == 0)
+        if ((year % 4 == 0) && year % 100 != 0) {
             return true;
-        if (year % 4 == 0 && year % 100 != 0) {
+        } else if ((year % 4 == 0) && (year % 100 == 0) && (year % 400 == 0)) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     //20. Viết chương trình nhập 1 chuỗi, và xóa khoảng trắng đầu cuối của chuỗi
@@ -455,20 +443,16 @@ public class Exercises_Day5 {
         b = temp;
     }
 
-    public static void printArray(String content, int[] array) {
-        System.out.println(content + Arrays.toString(array));
-    }
-
-    public static void printElementArray(String content, int[] array) {
+    public static void printElementArray(String content, Integer[] array) {
         String message = "";
         for (int i = 0; i < array.length; i++) {
             if (array.length == 1) {
                 message = content + array[i];
             } else {
                 if (i == 0) {
-                    message = content + array[i] + ",";
+                    message = content + array[i] + ", ";
                 } else if (i < array.length - 1) {
-                    message = message + array[i] + ",";
+                    message = message + array[i] + ", ";
                 } else {
                     message = message + array[i];
                 }
@@ -487,9 +471,9 @@ public class Exercises_Day5 {
                 message = content + array[i];
             } else {
                 if (i == 0) {
-                    message = content + array[i]+ ",";
+                    message = content + array[i] + ", ";
                 } else if (i < array.length - 1) {
-                    message = message + array[i] + ",";
+                    message = message + array[i] + ", ";
                 } else {
                     message = message + array[i];
                 }
@@ -498,20 +482,8 @@ public class Exercises_Day5 {
         System.out.println(message);
     }
 
-    public static void print(String content, int value) {
-        System.out.println(content + value);
-    }
-
-    public static void print(boolean value) {
-        System.out.println(value);
-    }
-
-    public static void print(String value) {
-        System.out.println(value);
-    }
-
-    public static int enterNumber() {
-        System.out.print("Enter Number: ");
+    public static int enterNumber(String content) {
+        System.out.print(content + " ");
         int n = 0;
         Scanner s = null;
         try {
@@ -536,4 +508,21 @@ public class Exercises_Day5 {
         }
         return arrNum;
     }
+
+    public static void printArray(String content, int[] array) {
+        System.out.println(content + Arrays.toString(array));
+    }
+
+    public static <E> void displayElementArray(E[] inputArray) {
+        // Display array elements
+        for (E element : inputArray) {
+            System.out.printf("%s ", element);
+        }
+        System.out.println();
+    }
+
+    public static <T> void print(T value) {
+        System.out.println(value);
+    }
+
 }
