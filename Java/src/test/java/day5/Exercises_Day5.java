@@ -5,30 +5,42 @@ import java.util.Scanner;
 public class Exercises_Day5 {
     public static void main(String args[]) {
         //int[] array = enterElements();
-        int [] array1 = {50, -20, 0, 30, 40, 60, 10};
-        int [] array2 = {50, -20, 0, 30, 40, 60, 50};
-        int [] array3 = {10};
-        int [] array4 = {10, 10};
-        int [] array5 = {10, 10, 10};
+        int[] array1 = {50, -20, 0, 30, 40, 60, 12};
+        int[] array2 = {45, 20, 10, 20, 30, 50, 11};
+        print("false " + valid2ArrayElementFirstAndLastTheSame(array1, array2));
 
-        print("array1:false " + validArrayElementFirstAndLastTheSame(array1));
-        print("array2:true " + validArrayElementFirstAndLastTheSame(array2));
-        print("array3:false " + validArrayElementFirstAndLastTheSame(array3));
-        print("array4:false " + validArrayElementFirstAndLastTheSame(array4));
-        print("array5:true " + validArrayElementFirstAndLastTheSame(array5));
+        int[] array3 = {50, -20, 0, 30, 40, 60, 12};
+        int[] array4 = {45, 20, 10, 20, 30, 50, 12};
+        print("false " + valid2ArrayElementFirstAndLastTheSame(array3, array4));
+
+        int[] array5 = {10, 20, 30};
+        int[] array6 = {10, 20, 30};
+        print("true " + valid2ArrayElementFirstAndLastTheSame(array5, array6));
+
+        int[] array7 = {10, 30};
+        int[] array8 = {10, 30};
+        print("true " + valid2ArrayElementFirstAndLastTheSame(array7, array8));
+
+        int[] array9 = {10};
+        int[] array10 = {10};
+        print("false " + valid2ArrayElementFirstAndLastTheSame(array9, array10));
+
+        int[] array11 = {50, -20, 0, 30, 40, 60, 12};
+        int[] array12 = {50, -20, 0, 30, 40, 60, 10};
+        print("false " + valid2ArrayElementFirstAndLastTheSame(array11, array12));
     }
 
     /*
-    1. Write a Java program to test if 10 appears as either the first or last element of an array of integers. The length of the array must be greater than or equal to 2.
-    Viết chương trình kiểm tra nếu số 10 xuất hiện ở đầu hoặc cuối trong mảng. Độ dài của mảng phải lớn hơn 2.
+    1. Write a Java program to test if 10 appears as either the first or last element of an array of integers.
+    The length of the array must be greater than or equal to 2.
     Sample Output:
     Test Data: array = 10, -20, 0, 30, 40, 60, 10
     true
      */
-    public static boolean validArrayElementFirstLast(int[] array) {
+    public static boolean validArrayElementFirstORLastIs10(int[] array) {
         boolean result = false;
         int lengthArray = array.length;
-        if (lengthArray > 2) {
+        if (lengthArray >= 2) {
             if (array[0] == 10 || array[lengthArray - 1] == 10) {
                 result = true;
             }
@@ -38,16 +50,38 @@ public class Exercises_Day5 {
         return result;
     }
 
-    /*2. Write a Java program to test if the first and the last element of an array of integers are the same. The length of the array must be greater than or equal to 2.
-    Viết chương trình kiểm tra phần tử đầu và phần tử trong mảng giống nhau. Độ dài của mảng phải lớn hơn 2.
+    /*2. Write a Java program to test if the first and the last element of an array of integers are the same.
+    The length of the array must be greater than or equal to 2.
     Test Data: array = 50, -20, 0, 30, 40, 60, 10
     Sample Output: false
     */
     public static boolean validArrayElementFirstAndLastTheSame(int[] array) {
         boolean result = false;
         int lengthArray = array.length;
-        if (lengthArray > 2) {
+        if (lengthArray >= 2) {
             if (array[0] == array[lengthArray - 1]) {
+                result = true;
+            }
+        } else {
+            result = false;
+        }
+        return result;
+    }
+
+    /*
+    3. Write a Java program to test if the first and the last element of two arrays of integers are the same.
+    The length of the array must be greater than or equal to 2.
+    Test Data:
+    array1 = 50, -20, 0, 30, 40, 60, 12
+    array2 = 45, 20, 10, 20, 30, 50, 11
+    Sample Output: false
+     */
+    public static boolean valid2ArrayElementFirstAndLastTheSame(int[] array1, int[] array2) {
+        boolean result = false;
+        int lengthArray1 = array1.length;
+        int lengthArray2 = array2.length;
+        if (lengthArray1 >= 2 && lengthArray2 >= 2) {
+            if (array1[0] == array2[0] && array1[lengthArray1 - 1] == array2[lengthArray2 - 1]) {
                 result = true;
             }
         } else {
