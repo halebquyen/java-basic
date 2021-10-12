@@ -9,16 +9,16 @@ public class Exercises_Day5 {
         //Exercises 1 here
         Integer[] array1 = {10, -20, 0, 30, 40, 60, 10};
         printElementArray("Test Data: array = ", array1);
-        print(validArrayElementFirstORLastIs10(array1));
+        validArrayElementFirstORLastIs10(array1);
 
         //Exercises 2 here
         int[] array2 = {50, -20, 0, 30, 40, 60, 10};
-        print(validArrayElementFirstAndLastTheSame(array2));
+        validArrayElementFirstAndLastTheSame(array2);
 
         //Exercises 3 here
         int[] array3 = {50, -20, 0, 30, 40, 60, 10};
         int[] array4 = {45, 20, 10, 20, 30, 50, 11};
-        print(valid2ArrayElementFirstAndLastTheSame(array3, array4));
+        valid2ArrayElementFirstAndLastTheSame(array3, array4);
 
 
         //Exercises 4 here
@@ -31,15 +31,15 @@ public class Exercises_Day5 {
         //Exercises 5 here
         int[] array7 = {5, 7};
         printArray("Original Array: ", array7);
-        print(checkElementValue(array7));
+        checkElementValue(array7);
 
         int[] array8 = {4, 1};
         printArray("Original Array: ", array8);
-        print(checkElementValue(array8));
+        checkElementValue(array8);
 
         int[] array9 = {0, 1};
         printArray("Original Array: ", array9);
-        print(checkElementValue(array9));
+        checkElementValue(array9);
 
         //Exercises 6 here
         int[] array10 = {20, 30, 40};
@@ -114,7 +114,7 @@ public class Exercises_Day5 {
     Test Data: array = 10, -20, 0, 30, 40, 60, 10
     true
      */
-    public static boolean validArrayElementFirstORLastIs10(Integer[] array) {
+    public static void validArrayElementFirstORLastIs10(Integer[] array) {
         boolean result = false;
         int lengthArray = array.length;
         if (lengthArray >= 2) {
@@ -122,7 +122,7 @@ public class Exercises_Day5 {
                 result = true;
             }
         }
-        return result;
+        print(result);
     }
 
     /*2. Write a Java program to test if the first and the last element of an array of integers are the same.
@@ -130,13 +130,13 @@ public class Exercises_Day5 {
     Test Data: array = 50, -20, 0, 30, 40, 60, 10
     Sample Output: false
     */
-    public static boolean validArrayElementFirstAndLastTheSame(int[] array) {
+    public static void validArrayElementFirstAndLastTheSame(int[] array) {
         boolean result = false;
         int lengthArray = array.length;
         if (lengthArray >= 2 && array[0] == array[lengthArray - 1]) {
             result = true;
         }
-        return result;
+        print(result);
     }
 
     /*
@@ -147,7 +147,7 @@ public class Exercises_Day5 {
     array2 = 45, 20, 10, 20, 30, 50, 11
     Sample Output: false
      */
-    public static boolean valid2ArrayElementFirstAndLastTheSame(int[] array1, int[] array2) {
+    public static void valid2ArrayElementFirstAndLastTheSame(int[] array1, int[] array2) {
         boolean result = false;
         int lengthArray1 = array1.length;
         int lengthArray2 = array2.length;
@@ -156,7 +156,7 @@ public class Exercises_Day5 {
                 result = true;
             }
         }
-        return result;
+        print (result);
     }
 
     /*
@@ -183,7 +183,7 @@ public class Exercises_Day5 {
     Original Array: [5, 7]
     true
      */
-    public static boolean checkElementValue(int[] array) {
+    public static void checkElementValue(int[] array) {
         boolean result = false;
         if (array.length == 2) {
             for (int i = 0; i < array.length; i++) {
@@ -191,7 +191,7 @@ public class Exercises_Day5 {
                     result = true;
             }
         }
-        return result;
+        print( result);
     }
 
     /*
